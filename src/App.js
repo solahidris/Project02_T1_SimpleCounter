@@ -1,29 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
-/*
-  You will build a simple React App which 
-  increment/decrements count on-screen
-  when buttons are clicked
-  using React State.element 
-*/
+import logo from "./logo.svg";
+import "./App.css";
+import button from "./button.module.css";
+import React, { useState } from "react";
 
 function App() {
+  const [counter, setCounter] = useState(0);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h6>
+          Task: Build a simple React App which increment/decrements count
+          on-screen when buttons are clicked using React State.element
+        </h6>
+        <label className={button.counter}>{counter}</label>
+        <div>
+          <button
+            className={button.button}
+            onClick={() => setCounter(counter + 1)}
+          >
+            +1
+          </button>
+          <button
+            className={button.button}
+            onClick={() => setCounter(counter - 1)}
+          >
+            -1
+          </button>
+        </div>
       </header>
     </div>
   );
